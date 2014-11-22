@@ -89,6 +89,18 @@ function changeState(state: number): void {
             // instantiate game over screen
             states.instructions();
             break;
+
+        case constants.LEVEL2_STATE:
+            currentStateFunction = states.level2State;
+            // instantiate level 2 screen
+            states.play2();
+            break;
+
+        case constants.LEVEL3_STATE:
+            currentStateFunction = states.level3State;
+            // instantiate level 3 screen
+            states.play3();
+            break;
     }
 }
 

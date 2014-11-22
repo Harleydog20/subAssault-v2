@@ -8,8 +8,8 @@
 /// <reference path="../managers/collision.ts" />
 module states {
     var music;
-    export function playState() {
-        ocean.update();
+    export function level2State() {
+        //ocean.update();
         coin.update();
         sub.update();
 
@@ -29,20 +29,10 @@ module states {
             currentState = constants.GAME_OVER_STATE;
             changeState(currentState);
         }
-
-        if (scoreboard.score >= 2500) {
-            music.stop();
-            stage.removeChild(game);
-            sub.destroy();
-            game.removeAllChildren();
-            game.removeAllEventListeners();
-            currentState = constants.LEVEL2_STATE;
-            changeState(currentState);
-        }
     }
 
     // play state Function
-    export function play(): void {
+    export function play2(): void {
         // Declare new Game Container
         game = new createjs.Container();
 
@@ -50,7 +40,7 @@ module states {
         music = createjs.Sound.play('playMusic', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
 
         // Instantiate Game Objects
-        ocean = new objects.Ocean(stage, game);
+        //ocean = new objects.Ocean(stage, game);
         coin = new objects.Coin(stage, game);
         sub = new objects.Sub(stage, game);
 
@@ -70,4 +60,4 @@ module states {
 
         stage.addChild(game);
     }
-}
+} 

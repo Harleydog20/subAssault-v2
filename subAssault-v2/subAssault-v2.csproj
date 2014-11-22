@@ -123,6 +123,8 @@
     <TypeScriptCompile Include="Scripts\lib\soundjs.d.ts" />
     <TypeScriptCompile Include="Scripts\states\gameover.ts" />
     <TypeScriptCompile Include="Scripts\states\instructions.ts" />
+    <TypeScriptCompile Include="Scripts\states\level2.ts" />
+    <TypeScriptCompile Include="Scripts\states\level3.ts" />
     <TypeScriptCompile Include="Scripts\states\menu.ts" />
     <TypeScriptCompile Include="Scripts\states\play.ts" />
     <TypeScriptCompile Include="Scripts\lib\tweenjs.d.ts" />
