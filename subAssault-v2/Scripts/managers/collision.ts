@@ -1,7 +1,8 @@
 ﻿/// <reference path="../objects/whale.ts" />
-/// <reference path="../objects/coin.ts" />
+/// <reference path="../objects/objective.ts" />
 /// <reference path="../objects/sub.ts" />
 /// <reference path="asset.ts" />
+/// <reference path="../objects/mrfish.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 
 module managers {
@@ -9,14 +10,16 @@ module managers {
     export class Collision {
         // class variables
         private sub: objects.Sub;
-        private coin: objects.Coin;
+        private objective: objects.Objective;
         private whales = [];
+        private mrFish: objects.mrFish
         private scoreboard: objects.Scoreboard;
 
-        constructor(sub: objects.Sub, coin: objects.Coin, whales, scoreboard: objects.Scoreboard) {
+        constructor(sub: objects.Sub, objective: objects.Objective, whales, mrFish: objects.mrFish, scoreboard: objects.Scoreboard) {
             this.sub = sub;
-            this.coin = coin;
+            this.objective = objective;
             this.whales = whales;
+            this.mrFish = mrFish;
             this.scoreboard = scoreboard;
         }
 
@@ -52,28 +55,50 @@ module managers {
             }
         }
 
-        // check collision between sub and island
-        private subAndCoin() {
+        // check collision between sub and mrFish object
+        private subAndmrFish() {
+            var p1: createjs.Point = new createjs.Point();
+            var p2: createjs.Point = new createjs.Point();
+            p1.x = this.sub.image.x;
+            p1.y = this.sub.image.y;
+            p2.x = mrFish.image.x;
+            p2.y = mrFish.image.y;
+            if (this.distance(p1, p2) < ((this.sub.height / 2) + (this.mrFish.height / 2))) {
+                createjs.Sound.play("explosionSound");
+                this.scoreboard.lives -= 1;
+                mrFish.reset();
+            }
+        }
+
+        // check collision between sub and coin
+        private subAndObjective() {
             var p1: createjs.Point = new createjs.Point();
             var p2: createjs.Point = new createjs.Point();
             p1.x = this.sub.image.x;
             p1.y = this.sub.image.y;
             p1.y = this.sub.image.y;
-            p2.x = this.coin.image.x;
-            p2.y = this.coin.image.y;
-            if (this.distance(p1, p2) < ((this.sub.height / 2) + (this.coin.height / 2))) {
+            p2.x = this.objective.image.x;
+            p2.y = this.objective.image.y;
+            if (this.distance(p1, p2) < ((this.sub.height / 2) + (this.objective.height / 2))) {
                 createjs.Sound.play("coinSound");
                 this.scoreboard.score += 100;
-                this.coin.reset();
+                this.objective.reset();
             }
         }
 
         // Utility Function to Check Collisions
         update() {
-            for (var count = 0; count < constants.WHALE_NUM; count++) {
-                this.subAndWhale(this.whales[count]);
+            if (this.whales != null) {
+                for (var count = 0; count < constants.WHALE_NUM; count++) {
+                    this.subAndWhale(this.whales[count]);
+                }
             }
-            this.subAndCoin();
+            if (this.mrFish != null) {
+                this.subAndmrFish();
+            }
+            if (this.objective != null) {
+                this.subAndObjective();
+            }            
         }
     }
 } 

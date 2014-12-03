@@ -1,5 +1,4 @@
-﻿/// <reference path="../managers/asset.ts" />
-module objects {
+﻿module objects {
     // Ocean Class
     export class Ocean {
         image: createjs.Bitmap;
@@ -7,24 +6,30 @@ module objects {
         game: createjs.Container;
         width: number;
         height: number;
-        dy: number;
+        dx: number;
         //make the background
-        constructor(stage: createjs.Stage, game: createjs.Container) {
+        constructor(stage: createjs.Stage, game: createjs.Container, level: number) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Bitmap(managers.Assets.loader.getResult("ocean"));
+            if(level == 1) {
+                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("ocean"));
+            } else if(level == 2) {
+                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("ocean2"));
+            } else if(level == 3) {
+
+            }            
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.reset();
             //set background speed
-            this.dy = 5;
+            this.dx = 5;
 
             game.addChild(this.image);
         }
 
         update() {
             //Move background, find when it gets to the end of the screen
-            this.image.x -= this.dy;
+            this.image.x -= this.dx;
             if (this.image.x <= -(this.width - this.stage.canvas.width)) {
                 this.reset();
             }

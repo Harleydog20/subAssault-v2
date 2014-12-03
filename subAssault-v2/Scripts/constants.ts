@@ -16,4 +16,9 @@
     export var SUB_LIVES = 3;//number of lives
     export var OCEAN_FLOOR: number = 85;//height of the ocean floor, prevents the sub and whales from
     //going under the ocean floor
+    export var LEVEL1_PASSED: number = 200;
+    export var LEVEL2_PASSED: number = 500;
+    export var MRFISH_MOVE_SPEED: number = 1;
+    export var SUB_MOVE_SPEED: number = 6;
+    
 }

@@ -1,7 +1,7 @@
 ﻿/// <reference path="../objects/button.ts" />
 /// <reference path="../objects/whale.ts" />
-/// <reference path="../objects/coin.ts" />
 /// <reference path="../objects/label.ts" />
+/// <reference path="../objects/objective.ts" />
 /// <reference path="../objects/ocean.ts" />
 /// <reference path="../objects/sub.ts" />
 /// <reference path="../objects/scoreboard.ts" />
@@ -10,7 +10,6 @@ module states {
     var music;
     export function level3State() {
         ocean.update();
-        coin.update();
         sub.update();
 
         for (var count = 0; count < constants.WHALE_NUM; count++) {
@@ -37,11 +36,10 @@ module states {
         game = new createjs.Container();
 
         //Add background music
-        music = createjs.Sound.play('playMusic', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
+        music = createjs.Sound.play('bossMusic', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
 
         // Instantiate Game Objects
-        ocean = new objects.Ocean(stage, game);
-        coin = new objects.Coin(stage, game);
+        ocean = new objects.Ocean(stage, game, 1);
         sub = new objects.Sub(stage, game);
 
         // Show Cursor
@@ -54,9 +52,10 @@ module states {
 
         // Display Scoreboard
         scoreboard = new objects.Scoreboard(stage, game);
+        scoreboard.score += constants.LEVEL2_PASSED;
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(sub, coin, whales, scoreboard);
+        collision = new managers.Collision(sub, null, whales, null, scoreboard);
 
         stage.addChild(game);
     }

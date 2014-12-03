@@ -1,15 +1,16 @@
 ﻿/// <reference path="constants.ts" />
 /// <reference path="managers/asset.ts" />
 /// <reference path="objects/whale.ts" />
-/// <reference path="objects/coin.ts" />
 /// <reference path="objects/ocean.ts" />
 /// <reference path="objects/sub.ts" />
+/// <reference path="objects/objective.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/label.ts" />
 /// <reference path="objects/button.ts" />
 /// <reference path="managers/collision.ts" />
 /// <reference path="states/play.ts" />
 /// <reference path="states/menu.ts" />
+/// <reference path="objects/mrfish.ts" />
 /// <reference path="states/gameover.ts" />
 
 
@@ -18,9 +19,11 @@ var game: createjs.Container;
 
 var ocean: objects.Ocean;
 var sub: objects.Sub;
-var coin: objects.Coin;
+var objective: objects.Objective;
 var whales = [];
+var mrFish: objects.mrFish;
 var scoreboard: objects.Scoreboard;
+var myTimeOutCrystal;
 
 var collision: managers.Collision;
 

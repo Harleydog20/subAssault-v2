@@ -2,7 +2,7 @@
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../objects/sub.ts" />
 /// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/coin.ts" />
+/// <reference path="../objects/objective.ts" />
 /// <reference path="../objects/whale.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/label.ts" />
@@ -29,7 +29,7 @@ module states {
         game = new createjs.Container();
 
         // Instantiate Game Objects
-        ocean = new objects.Ocean(stage, game);
+        ocean = new objects.Ocean(stage, game, 1);
 
         //Add background music
         music = createjs.Sound.play('startMusic', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);

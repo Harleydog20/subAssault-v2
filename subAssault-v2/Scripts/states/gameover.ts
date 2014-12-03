@@ -1,7 +1,6 @@
 ﻿/// <reference path="../constants.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/whale.ts" />
-/// <reference path="../objects/coin.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/ocean.ts" />
 /// <reference path="../objects/sub.ts" />
@@ -35,7 +34,7 @@ module states {
         music = createjs.Sound.play('gameOverMusic', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
 
         // Instantiate Game Objects
-        ocean = new objects.Ocean(stage, game);
+        ocean = new objects.Ocean(stage, game, 1);
 
         // Show Cursor
         stage.cursor = "default";
