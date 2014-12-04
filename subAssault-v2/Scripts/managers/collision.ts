@@ -81,7 +81,7 @@ module managers {
             p2.y = this.objective.image.y;
             if (this.distance(p1, p2) < ((this.sub.height / 2) + (this.objective.height / 2))) {
                 createjs.Sound.play("coinSound");
-                this.scoreboard.score += 100;
+                this.scoreboard.objective ++;
                 this.objective.reset();
             }
         }

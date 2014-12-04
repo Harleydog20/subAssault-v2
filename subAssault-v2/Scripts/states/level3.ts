@@ -2,6 +2,7 @@
 /// <reference path="../objects/whale.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/objective.ts" />
+/// <reference path="../objects/boss.ts" />
 /// <reference path="../objects/ocean.ts" />
 /// <reference path="../objects/sub.ts" />
 /// <reference path="../objects/scoreboard.ts" />
@@ -11,6 +12,7 @@ module states {
     export function level3State() {
         ocean.update();
         sub.update();
+        boss.update();
 
         for (var count = 0; count < constants.WHALE_NUM; count++) {
             whales[count].update();
@@ -45,17 +47,14 @@ module states {
         // Show Cursor
         stage.cursor = "none";
 
-        // Create multiple whales
-        for (var count = 0; count < constants.WHALE_NUM; count++) {
-            whales[count] = new objects.Whale(stage, game);
-        }
+        // Create the boss
+        boss = new objects.boss(stage, game);
 
         // Display Scoreboard
         scoreboard = new objects.Scoreboard(stage, game);
-        scoreboard.score += constants.LEVEL2_PASSED;
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(sub, null, whales, null, scoreboard);
+        collision = new managers.Collision(sub, null, null, null, scoreboard);
 
         stage.addChild(game);
     }

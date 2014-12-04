@@ -4,6 +4,7 @@
 /// <reference path="objects/ocean.ts" />
 /// <reference path="objects/sub.ts" />
 /// <reference path="objects/objective.ts" />
+/// <reference path="objects/boss.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/label.ts" />
 /// <reference path="objects/button.ts" />
@@ -22,8 +23,8 @@ var sub: objects.Sub;
 var objective: objects.Objective;
 var whales = [];
 var mrFish: objects.mrFish;
+var boss: objects.boss;
 var scoreboard: objects.Scoreboard;
-var myTimeOutCrystal;
 
 var collision: managers.Collision;
 

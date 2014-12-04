@@ -29,7 +29,7 @@ module states {
             changeState(currentState);
         }
 
-        if (scoreboard.score >= constants.LEVEL2_PASSED) {
+        if (scoreboard.objective >= constants.LEVEL_PASSED) {
             music.stop();
             stage.removeChild(game);
             sub.destroy();
@@ -59,7 +59,7 @@ module states {
         mrFish = new objects.mrFish(stage, game);
         // Display Scoreboard
         scoreboard = new objects.Scoreboard(stage, game);
-        scoreboard.score += constants.LEVEL1_PASSED;
+        scoreboard.objective >= constants.LEVEL_PASSED;
 
         // Instantiate Collision Manager
         collision = new managers.Collision(sub, objective, null, mrFish, scoreboard);

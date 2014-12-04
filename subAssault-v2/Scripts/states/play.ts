@@ -30,7 +30,7 @@ module states {
             changeState(currentState);
         }
 
-        if (scoreboard.score >= constants.LEVEL1_PASSED) {
+        if (scoreboard.objective >= constants.LEVEL_PASSED) {
             music.stop();
             stage.removeChild(game);
             sub.destroy();
