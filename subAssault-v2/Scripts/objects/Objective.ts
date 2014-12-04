@@ -15,9 +15,9 @@ module objects {
             this.stage = stage;
             this.game = game;
             if(level == 1) {
-                this.image = new createjs.Sprite(managers.Assets.atlas, "coin");
+                this.image = new createjs.Sprite(managers.Assets.atlas, "fuel");
             } else if(level == 2) {
-                this.image = new createjs.Sprite(managers.Assets.atlas, "coin");
+                this.image = new createjs.Sprite(managers.Assets.atlas, "ammo");
             }            
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
