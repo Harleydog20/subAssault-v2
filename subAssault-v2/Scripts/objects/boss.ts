@@ -9,7 +9,6 @@ module objects {
         game: createjs.Container;
         width: number;
         height: number;
-        up: boolean;
 
         //create boss
         constructor(stage: createjs.Stage, game: createjs.Container) {
@@ -24,16 +23,14 @@ module objects {
             this.image.x = this.stage.canvas.width - (this.width / 4);
             this.image.y = this.stage.canvas.height / 2;
 
-            this.up = true;
-
             game.addChild(this.image);
         }
 
         update() {
-            if (this.up) {
-
-            } else {
-
+            if (this.image.y > (sub.image.y + constants.BOSS_MOVE_SPEED)) {
+                this.image.y -= constants.BOSS_MOVE_SPEED;
+            } else if (this.image.y < (sub.image.y - constants.BOSS_MOVE_SPEED)) {
+                this.image.y += constants.BOSS_MOVE_SPEED;
             }
         }
 

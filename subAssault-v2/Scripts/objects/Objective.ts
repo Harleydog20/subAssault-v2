@@ -5,7 +5,8 @@
 module objects {
     // objective Class
     export class Objective {
-        image: createjs.Sprite;
+        //image: createjs.Sprite;
+        image: createjs.Bitmap;
         stage: createjs.Stage;
         game: createjs.Container;
         height: number;
@@ -14,10 +15,12 @@ module objects {
         constructor(stage: createjs.Stage, game: createjs.Container, level: number) {
             this.stage = stage;
             this.game = game;
-            if(level == 1) {
-                this.image = new createjs.Sprite(managers.Assets.atlas, "fuel");
-            } else if(level == 2) {
-                this.image = new createjs.Sprite(managers.Assets.atlas, "ammo");
+            if (level == constants.PLAY_STATE) {
+                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("fuel"));
+                //this.image = new createjs.Sprite(managers.Assets.atlas, "fuel");
+            } else if (level == constants.LEVEL2_STATE) {
+                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("ammo"));
+                //this.image = new createjs.Sprite(managers.Assets.atlas, "ammo");
             }            
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;

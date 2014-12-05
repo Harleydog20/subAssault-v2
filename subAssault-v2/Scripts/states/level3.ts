@@ -10,7 +10,6 @@
 module states {
     var music;
     export function level3State() {
-        ocean.update();
         sub.update();
         boss.update();
 
@@ -40,12 +39,15 @@ module states {
         //Add background music
         music = createjs.Sound.play('bossMusic', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
 
-        // Instantiate Game Objects
-        ocean = new objects.Ocean(stage, game, 1);
-        sub = new objects.Sub(stage, game);
+        //Backgorund
+        this.image = new createjs.Bitmap(managers.Assets.loader.getResult("level3"));
+        game.addChild(this.image);
+
+        // Instantiate Game Objects        
+        sub = new objects.Sub(stage, game);        
 
         // Show Cursor
-        stage.cursor = "none";
+        //stage.cursor = "none";
 
         // Create the boss
         boss = new objects.boss(stage, game);

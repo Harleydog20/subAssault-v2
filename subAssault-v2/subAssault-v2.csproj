@@ -61,8 +61,13 @@
   <ItemGroup>
     <Content Include="assets\images\1945.bmp" />
     <Content Include="assets\images\atlas.png" />
+    <Content Include="assets\images\Background.jpg" />
+    <Content Include="assets\images\Final_boss.jpg" />
+    <Content Include="assets\images\fuel.png" />
     <Content Include="assets\images\ocean.png" />
     <Content Include="assets\images\ocean2.png" />
+    <Content Include="assets\images\Title.png" />
+    <Content Include="assets\images\torpedo3.png" />
     <Content Include="assets\sounds\bossScreen.wav" />
     <Content Include="assets\sounds\coin.wav" />
     <Content Include="assets\sounds\Explosion.wav" />

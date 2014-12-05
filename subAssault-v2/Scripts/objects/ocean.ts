@@ -11,13 +11,13 @@
         constructor(stage: createjs.Stage, game: createjs.Container, level: number) {
             this.stage = stage;
             this.game = game;
-            if(level == 1) {
+            if (level == constants.PLAY_STATE) {
+                //Level 1
                 this.image = new createjs.Bitmap(managers.Assets.loader.getResult("ocean"));
-            } else if(level == 2) {
+            } else if (level == constants.LEVEL2_STATE) {
+                //Level 2
                 this.image = new createjs.Bitmap(managers.Assets.loader.getResult("ocean2"));
-            } else if(level == 3) {
-
-            }            
+            } 
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.reset();

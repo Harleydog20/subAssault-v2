@@ -3,12 +3,18 @@
     var assetManifest = [
         { id: "ocean", src: "assets/images/ocean.png" },//Level 1 Background
         { id: "ocean2", src: "assets/images/ocean2.png" },//Level 2 Background
+        { id: "background", src: "assets/images/Background.jpg" },//Background
+        { id: "level3", src: "assets/images/Final_boss.jpg" },//Final Boss Background
         { id: "startMusic", src: "assets/sounds/startScreen.wav" },//Start Screen soundtrack
         { id: "playMusic", src: "assets/sounds/playScreen.wav" },//Play Screen soundtrack
         { id: "gameOverMusic", src: "assets/sounds/gameOverScreen.wav" },//Gameover Screen soundtrack
         { id: "bossMusic", src: "assets/sounds/bossScreen.wav" },//Not used in this version
         { id: "coinSound", src: "assets/sounds/coin.wav" },//coin pickup sound
-        { id: "explosionSound", src: "assets/sounds/Explosion.wav" }//enemy hit sound
+        { id: "explosionSound", src: "assets/sounds/Explosion.wav" },//enemy hit sound
+        //Temp
+        { id: "title", src: "assets/images/Title.png" },//Title
+        { id: "fuel", src: "assets/images/fuel.png" },//ammo
+        { id: "ammo", src: "assets/images/torpedo3.png" }//ammo
     ];
 
     // SpriteSheet Data Object
@@ -68,8 +74,7 @@
                 speed: 0.05
             },
             "bossDead": [27],
-            "fuel": [4],
-            "ammo": [3]
+            "fuel22": [4]
         }
        
     }

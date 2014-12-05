@@ -8,6 +8,8 @@ module objects {
         game: createjs.Container;
         width: number;
         height: number;
+        up: boolean;
+        centerY: number;
         //Make the sub
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
@@ -17,6 +19,8 @@ module objects {
             this.height = this.image.getBounds().height;
             this.image.regX = this.width / 2;
             this.image.regY = this.height / 2;
+            this.up = true;
+            this.centerY = stage.canvas.height / 2;
             game.addChild(this.image);
         }
 
@@ -35,6 +39,29 @@ module objects {
                 this.image.x -= constants.SUB_MOVE_SPEED;
             }
         }
+
+        idle() {
+
+                if (this.up) {
+                    if (this.image.y <= (this.centerY + 12)) {
+                        this.image.y += 0.6;
+                    } else if (this.image.y < (this.centerY + 20)) {
+                        this.image.y += 0.3;
+                    } else if (this.image.y >= (this.centerY + 20)) {
+                        this.up = false;
+                    }
+                } else {
+                    if (this.image.y >= (this.centerY - 12)) {
+                        this.image.y -= 0.6;
+                    } else if (this.image.y > (this.centerY - 20)) {
+                        this.image.y -= 0.3;
+                    } else if (this.image.y <= (this.centerY - 20)) {
+                        this.up = true;
+                    }
+                }
+                   
+        }
+
         destroy() {
             //remove sub from the screen
             game.removeChild(this.image);

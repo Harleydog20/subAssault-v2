@@ -49,8 +49,8 @@ module states {
         music = createjs.Sound.play('playMusic', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
 
         // Instantiate Game Objects
-        ocean = new objects.Ocean(stage, game, 2);
-        objective = new objects.Objective(stage, game, 2);
+        ocean = new objects.Ocean(stage, game, constants.LEVEL2_STATE);
+        objective = new objects.Objective(stage, game, constants.LEVEL2_STATE);
         sub = new objects.Sub(stage, game);
 
         // Show Cursor

@@ -8,7 +8,7 @@
 /// <reference path="../objects/label.ts" />
 module states {
     var music;
-    export function backButtonClicked(event: MouseEvent) {
+    export function instructionBackButtonClicked(event: MouseEvent) {
         music.stop();
         stage.removeChild(game);        
         game.removeAllChildren();
@@ -18,7 +18,7 @@ module states {
     }
 
     export function instructionState() {
-        ocean.update();        
+        //ocean.update();        
     }
 
     export function instructions() {
@@ -29,7 +29,10 @@ module states {
         game = new createjs.Container();
 
         // Instantiate Game Objects
-        ocean = new objects.Ocean(stage, game, 1);
+
+        //Background Image
+        this.image = new createjs.Bitmap(managers.Assets.loader.getResult("background"));
+        game.addChild(this.image);
 
         //Add background music
         music = createjs.Sound.play('startMusic', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
@@ -54,9 +57,9 @@ module states {
         game.addChild(instructionLabel);
 
         // Display back Button
-        backButton = new objects.Button(stage.canvas.width / 2, 375, "backButton");
+        backButton = new objects.Button(stage.canvas.width / 2, 400, "backButton");
         game.addChild(backButton);
-        backButton.addEventListener("click", backButtonClicked);
+        backButton.addEventListener("click", instructionBackButtonClicked);
 
         stage.addChild(game);
     }

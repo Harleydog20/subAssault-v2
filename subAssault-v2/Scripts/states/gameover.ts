@@ -7,8 +7,9 @@
 /// <reference path="../objects/scoreboard.ts" />
 module states {
     var music;
+    image: createjs.Bitmap;
     export function gameOverState() {
-        ocean.update();
+        //ocean.update();
     }
 
     // Restart Game when Try Again Button is clicked
@@ -18,6 +19,16 @@ module states {
         game.removeAllChildren();
         game.removeAllEventListeners();
         currentState = constants.PLAY_STATE;
+        changeState(currentState);
+    }
+
+    //Go Back to the Main Menu
+    export function gameOverBackButtonClicked(event: MouseEvent) {
+        music.stop();
+        stage.removeChild(game);
+        game.removeAllChildren();
+        game.removeAllEventListeners();
+        currentState = constants.MENU_STATE;
         changeState(currentState);
     }
 
@@ -34,7 +45,10 @@ module states {
         music = createjs.Sound.play('gameOverMusic', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
 
         // Instantiate Game Objects
-        ocean = new objects.Ocean(stage, game, 1);
+        
+        //Background Image
+        this.image = new createjs.Bitmap(managers.Assets.loader.getResult("background"));
+        game.addChild(this.image);
 
         // Show Cursor
         stage.cursor = "default";
@@ -52,9 +66,14 @@ module states {
         game.addChild(finalScore);
 
         // Display Try Again Button
-        tryAgain = new objects.Button(stage.canvas.width / 2, 300, "tryAgainButton");
+        tryAgain = new objects.Button(200, 400, "tryAgainButton");
         game.addChild(tryAgain);
         tryAgain.addEventListener("click", tryAgainClicked);
+
+        // Display back Button
+        backButton = new objects.Button(stage.canvas.width - 200, 400, "backButton");
+        game.addChild(backButton);
+        backButton.addEventListener("click", gameOverBackButtonClicked);
 
         stage.addChild(game);
 
