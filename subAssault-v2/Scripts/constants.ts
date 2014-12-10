@@ -14,11 +14,12 @@
     export var TEXT_FONT = "18px Consolas";
     export var TEXT_COLOUR = "#FFFF00";
     export var SUB_LIVES = 3;//number of lives
-    export var OCEAN_FLOOR: number = 85;//height of the ocean floor, prevents the sub and whales from
+    export var OCEAN_FLOOR: number = 90;//height of the ocean floor, prevents the sub and whales from
     //going under the ocean floor
     export var LEVEL_PASSED: number = 3;
     export var SUB_MOVE_SPEED: number = 7;
     export var MRFISH_MOVE_SPEED: number = SUB_MOVE_SPEED / 3;
     export var BOSS_MOVE_SPEED: number = SUB_MOVE_SPEED / 4;
+    export var TORPEDO_MOVE_SPEED: number = 5;
         
 }

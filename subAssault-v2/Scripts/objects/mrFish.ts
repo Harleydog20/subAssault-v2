@@ -11,7 +11,6 @@ module objects {
         width: number;
         height: number;
 
-        lag: number;
         //create mrFish
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
@@ -22,8 +21,6 @@ module objects {
             this.image.regX = this.width / 2;
             this.image.regY = this.height / 2;
             this.reset();
-
-            this.lag = 5;
 
             game.addChild(this.image);
         }
@@ -43,17 +40,10 @@ module objects {
             }    
         }
 
-        calculateLag(currentSpeed: number) {
-            if (currentSpeed >= -5) {
-                this.lag 
-            } 
-        }
-
         reset() {
-            //reset the whale image
+            //reset the image
             this.image.y = Math.floor(Math.random() * (this.stage.canvas.height - constants.OCEAN_FLOOR));
             this.image.x = 500;
-            //this.image.x = this.stage.canvas.width + this.width;
         }
 
         destroy() {

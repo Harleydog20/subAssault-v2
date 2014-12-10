@@ -87,18 +87,18 @@ module managers {
         }
 
         // Utility Function to Check Collisions
-        update() {
-            if (this.whales != null) {
-                for (var count = 0; count < constants.WHALE_NUM; count++) {
-                    this.subAndWhale(this.whales[count]);
-                }
+        update_level1() {
+            for (var count = 0; count < constants.WHALE_NUM; count++) {
+                this.subAndWhale(this.whales[count]);
             }
-            if (this.mrFish != null) {
-                this.subAndmrFish();
-            }
-            if (this.objective != null) {
-                this.subAndObjective();
-            }            
+            this.subAndObjective();        
+        }
+        update_level2() {
+            this.subAndmrFish();
+            this.subAndObjective();
+        }
+        update_level3() {
+
         }
     }
 } 

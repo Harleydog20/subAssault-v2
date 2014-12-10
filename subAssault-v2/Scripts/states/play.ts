@@ -17,11 +17,13 @@ module states {
             whales[count].update();
         }
 
-        collision.update();
+        collision.update_level1();
         scoreboard.update();
 
         if (scoreboard.lives <= 0) {
             music.stop();
+            finalScore = 0;
+            lives = constants.SUB_LIVES;
             stage.removeChild(game);
             sub.destroy();
             game.removeAllChildren();
@@ -32,6 +34,8 @@ module states {
 
         if (scoreboard.objective >= constants.LEVEL_PASSED) {
             music.stop();
+            finalScore = scoreboard.score;
+            lives = scoreboard.lives;
             stage.removeChild(game);
             sub.destroy();
             game.removeAllChildren();

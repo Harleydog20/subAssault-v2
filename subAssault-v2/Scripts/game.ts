@@ -20,6 +20,7 @@ var game: createjs.Container;
 
 var ocean: objects.Ocean;
 var sub: objects.Sub;
+var ted: objects.torpedo;
 var objective: objects.Objective;
 var whales = [];
 var mrFish: objects.mrFish;
@@ -36,6 +37,10 @@ var backButton: objects.Button;
 var currentState: number;
 var currentStateFunction;
 
+var finalScore: number;
+var lives: number;
+var fired: boolean;
+
 // Preload function - Loads Assets and initializes game;
 function preload(): void {
     managers.Assets.init();
@@ -49,6 +54,9 @@ function init(): void {
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", gameLoop);
     optimizeForMobile();
+    lives = constants.SUB_LIVES;
+    finalScore = 0;
+    fired = false;
 
     currentState = constants.MENU_STATE;
     changeState(currentState);

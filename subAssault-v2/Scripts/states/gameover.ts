@@ -1,4 +1,5 @@
-﻿/// <reference path="../constants.ts" />
+﻿/// <reference path="../game.ts" />
+/// <reference path="../constants.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/whale.ts" />
 /// <reference path="../objects/label.ts" />
@@ -62,7 +63,7 @@ module states {
         game.addChild(finalScoreLabel);
 
         // Display Final Score
-        finalScore = new objects.Label(stage.canvas.width / 2, 160, scoreboard.score.toString());
+        finalScore = new objects.Label(stage.canvas.width / 2, 160, scoreboard.finalScore.toString());
         game.addChild(finalScore);
 
         // Display Try Again Button

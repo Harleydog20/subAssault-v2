@@ -13,8 +13,10 @@
         { id: "explosionSound", src: "assets/sounds/Explosion.wav" },//enemy hit sound
         //Temp
         { id: "title", src: "assets/images/Title.png" },//Title
-        { id: "fuel", src: "assets/images/fuel.png" },//ammo
-        { id: "ammo", src: "assets/images/torpedo3.png" }//ammo
+        { id: "fuel", src: "assets/images/fuel.png" },//fuel
+        { id: "ammo", src: "assets/images/torpedo3.png" },//ammo
+        { id: "torpedo", src: "assets/images/torpedo1.png" },//torpedo
+        { id: "torpedo_boss", src: "assets/images/torpedo2.png" }//boss torpedo
     ];
 
     // SpriteSheet Data Object

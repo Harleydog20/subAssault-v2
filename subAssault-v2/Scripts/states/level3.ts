@@ -10,18 +10,21 @@
 module states {
     var music;
     export function level3State() {
-        sub.update();
+        sub.update_bossLevel();
         boss.update();
 
-        for (var count = 0; count < constants.WHALE_NUM; count++) {
-            whales[count].update();
-        }
+        collision.update_level3();
+        scoreboard.update_bossLevel();
 
-        collision.update();
-        scoreboard.update();
+        if (fired) {            
+            ted.update();
+            
+        } 
 
         if (scoreboard.lives <= 0) {
             music.stop();
+            finalScore = 0;
+            lives = constants.SUB_LIVES;
             stage.removeChild(game);
             sub.destroy();
             game.removeAllChildren();
@@ -44,7 +47,14 @@ module states {
         game.addChild(this.image);
 
         // Instantiate Game Objects        
-        sub = new objects.Sub(stage, game);        
+        sub = new objects.Sub(stage, game);   
+        
+        stage.addEventListener("click", function (event) {
+            if (fired == false) {
+                ted = new objects.torpedo(stage, game);
+                fired = true;
+            }            
+        })     
 
         // Show Cursor
         //stage.cursor = "none";

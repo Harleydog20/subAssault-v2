@@ -1,19 +1,12 @@
 ﻿/// <reference path="../constants.ts" />
-/// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../objects/sub.ts" />
-/// <reference path="../objects/ocean.ts" />
-/// <reference path="../objects/whale.ts" />
 /// <reference path="../objects/button.ts" />
-/// <reference path="../objects/label.ts" />
 module states {  
     var music;
     export function playButtonClicked(event: MouseEvent) {
         music.stop();
         stage.removeChild(game);  
-        sub.destroy();      
-        for (var count = 0; count < constants.WHALE_NUM; count++) {
-            whales[count].destroy();
-        }        
+        sub.destroy();            
         game.removeAllChildren();
         game.removeAllEventListeners();
         currentState = constants.PLAY_STATE;
@@ -24,9 +17,6 @@ module states {
         music.stop();
         stage.removeChild(game);
         sub.destroy();
-        for (var count = 0; count < constants.WHALE_NUM; count++) {
-            whales[count].destroy();
-        }
         game.removeAllChildren();
         game.removeAllEventListeners();
         currentState = constants.INSTRUCTION_STATE;
@@ -35,9 +25,6 @@ module states {
 
     export function menuState() {
         sub.idle();
-        for (var count = 0; count < constants.WHALE_NUM; count++) {
-            whales[count].update();
-        }
     }
 
     export function menu() {
@@ -65,20 +52,6 @@ module states {
         this.title.x = (stage.canvas.width / 2);
         this.title.y = 75;
         game.addChild(this.title);
-
-        //Sub Image
-        /*this.sub = new createjs.Sprite(managers.Assets.atlas, "Submarine");
-        this.sub.width = this.sub.getBounds().width;
-        this.sub.height = this.sub.getBounds().height;
-        this.sub.regX = (this.sub.width / 2);
-        this.sub.regY = (this.sub.height / 2);
-        this.sub.x = (stage.canvas.width / 2);
-        this.sub.y = (stage.canvas.height / 2);
-        game.addChild(this.sub);*/
-
-        for (var count = 0; count < constants.WHALE_NUM; count++) {
-            whales[count] = new objects.Whale(stage, game);
-        }
 
         // Show Cursor
         stage.cursor = "default";
