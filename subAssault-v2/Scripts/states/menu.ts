@@ -1,4 +1,12 @@
-﻿/// <reference path="../constants.ts" />
+﻿/*
+    File name: menu.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Dec. 12, 2014 
+    File decsription: creates the menu state
+ */
+
+/// <reference path="../constants.ts" />
 /// <reference path="../objects/sub.ts" />
 /// <reference path="../objects/button.ts" />
 module states {  
@@ -44,7 +52,7 @@ module states {
         sub.image.y = stage.canvas.height / 2;
 
         //Title Image
-        this.title = new createjs.Bitmap(managers.Assets.loader.getResult("title"));
+        this.title = new createjs.Sprite(managers.Assets.atlas, "title");
         this.width = this.title.getBounds().width;
         this.height = this.title.getBounds().height;
         this.title.regX = this.width / 2;

@@ -1,4 +1,12 @@
-﻿/// <reference path="../objects/button.ts" />
+﻿/*
+    File name: level2.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Dec. 12, 2014 
+    File decsription: creates the levle2 state
+ */
+
+/// <reference path="../objects/button.ts" />
 /// <reference path="../objects/whale.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/ocean.ts" />
@@ -20,8 +28,8 @@ module states {
 
         if (scoreboard.lives <= 0) {
             music.stop();
-            finalScore = 0;
-            lives = constants.SUB_LIVES;
+            FinalScore = 0;
+            Lives = constants.SUB_LIVES;
             stage.removeChild(game);
             sub.destroy();
             mrFish.destroy();
@@ -33,8 +41,8 @@ module states {
 
         if (scoreboard.objective >= constants.LEVEL_PASSED) {
             music.stop();
-            finalScore += scoreboard.score;
-            lives = scoreboard.lives;
+            FinalScore += scoreboard.score;
+            Lives = scoreboard.lives;
             stage.removeChild(game);
             sub.destroy();
             game.removeAllChildren();
@@ -60,13 +68,12 @@ module states {
         // Show Cursor
         //stage.cursor = "none";
         
-        mrFish = new objects.mrFish(stage, game);
+        mrFish = new objects.MrFish(stage, game);
         // Display Scoreboard
         scoreboard = new objects.Scoreboard(stage, game);
-        scoreboard.objective >= constants.LEVEL_PASSED;
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(sub, objective, null, mrFish, scoreboard);
+        collision = new managers.Collision(sub, objective, null, mrFish, scoreboard, null, null, null);
 
         stage.addChild(game);
     }

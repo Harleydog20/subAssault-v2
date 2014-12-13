@@ -1,4 +1,12 @@
-﻿/// <reference path="constants.ts" />
+﻿/*
+    File name: game.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Dec. 12, 2014 
+    File decsription: has the state machine, game engine and global variables
+ */
+
+/// <reference path="constants.ts" />
 /// <reference path="managers/asset.ts" />
 /// <reference path="objects/whale.ts" />
 /// <reference path="objects/ocean.ts" />
@@ -23,11 +31,13 @@ var sub: objects.Sub;
 var ted: objects.torpedo;
 var objective: objects.Objective;
 var whales = [];
-var mrFish: objects.mrFish;
-var boss: objects.boss;
+var mrFish: objects.MrFish;
+var boss: objects.Boss;
+var bill: objects.torpedo_boss;
 var scoreboard: objects.Scoreboard;
 
 var collision: managers.Collision;
+var collision2: managers.Collision;
 
 var tryAgain: objects.Button;
 var playButton: objects.Button;
@@ -37,8 +47,8 @@ var backButton: objects.Button;
 var currentState: number;
 var currentStateFunction;
 
-var finalScore: number;
-var lives: number;
+var FinalScore: number;
+var Lives: number;
 var fired: boolean;
 
 // Preload function - Loads Assets and initializes game;
@@ -54,8 +64,8 @@ function init(): void {
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", gameLoop);
     optimizeForMobile();
-    lives = constants.SUB_LIVES;
-    finalScore = 0;
+    Lives = constants.SUB_LIVES;
+    FinalScore = 0;
     fired = false;
 
     currentState = constants.MENU_STATE;
@@ -112,6 +122,12 @@ function changeState(state: number): void {
             currentStateFunction = states.level3State;
             // instantiate level 3 screen
             states.play3();
+            break;
+
+        case constants.WINSCREEN_STATE:
+            currentStateFunction = states.winScreenState;
+            // instantiate win screen
+            states.winScreen();
             break;
     }
 }

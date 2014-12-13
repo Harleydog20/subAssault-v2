@@ -1,4 +1,12 @@
-﻿/// <reference path="../constants.ts" />
+﻿/*
+    File name: text.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Nov. 12, 2014 
+    File decsription: has a smaller font for displaying text
+ */
+
+/// <reference path="../constants.ts" />
 module objects {
     export class text extends createjs.Text {
         constructor(x: number, y: number, labelText: string) {

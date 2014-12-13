@@ -1,4 +1,12 @@
-﻿module objects {
+﻿/*
+    File name: scoreboard.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Dec. 10, 2014 
+    File decsription: create the scoreboard object and adds the logic to it
+ */
+
+module objects {
     // Scoreboard Class
     export class Scoreboard {
         stage: createjs.Stage;
@@ -16,11 +24,11 @@
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;
-            this.lives = lives;
+            this.lives = Lives;
             this.score = 1000;
             this.timer = 0;
             this.objective = 0;
-            this.finalScore = finalScore;
+            this.finalScore = FinalScore;
             this.bossHealth = 100;
             this.label = new createjs.Text(this.labelText, constants.LABEL_FONT, constants.LABEL_COLOUR);
             this.update();

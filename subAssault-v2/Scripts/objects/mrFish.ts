@@ -1,10 +1,18 @@
-﻿/// <reference path="../managers/asset.ts" />
+﻿/*
+    File name: mrFish.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Dec. 12, 2014 
+    File decsription: create the mrFish object and adds the logic to it
+ */
+
+/// <reference path="../managers/asset.ts" />
 /// <reference path="sub.ts" />
 /// <reference path="../constants.ts" />
 
 module objects {
     // mrFish class
-    export class mrFish {
+    export class MrFish {
         image: createjs.Sprite;
         stage: createjs.Stage;
         game: createjs.Container;
@@ -43,7 +51,7 @@ module objects {
         reset() {
             //reset the image
             this.image.y = Math.floor(Math.random() * (this.stage.canvas.height - constants.OCEAN_FLOOR));
-            this.image.x = 500;
+            this.image.x = this.stage.canvas.width + (this.width / 2);
         }
 
         destroy() {

@@ -1,9 +1,9 @@
 ﻿/*
-    File name: gameover.ts
+    File name: winScreen.ts
     Author: Robert Thomas
     Last Modified by: Robert Thomas
     Date last Modified: Dec. 12, 2014 
-    File decsription: creates the gameover state
+    File decsription: creates the winScreen state
  */
 
 /// <reference path="../game.ts" />
@@ -17,32 +17,24 @@
 module states {
     var music;
     image: createjs.Bitmap;
-    export function gameOverState() {
-        //ocean.update();
-    }
-
-    // Restart Game when Try Again Button is clicked
-    export function tryAgainClicked(event: MouseEvent) {
-        music.stop();
-        stage.removeChild(game);
-        game.removeAllChildren();
-        game.removeAllEventListeners();
-        currentState = constants.PLAY_STATE;
-        changeState(currentState);
+    boss: createjs.Bitmap;
+    export function winScreenState() {
+        sub.idle();
     }
 
     //Go Back to the Main Menu
-    export function gameOverBackButtonClicked(event: MouseEvent) {
+    export function winScreenBackButtonClicked(event: MouseEvent) {
         music.stop();
         stage.removeChild(game);
         game.removeAllChildren();
         game.removeAllEventListeners();
+        ted.destroy();
         currentState = constants.MENU_STATE;
         changeState(currentState);
     }
 
     // Game Over Scene
-    export function gameOver() {
+    export function winScreen() {
         var gameOverLabel: objects.Label;
         var finalScoreLabel: objects.Label;
         var finalScore: objects.Label;
@@ -51,40 +43,49 @@ module states {
         game = new createjs.Container();
 
         //Add background music
-        music = createjs.Sound.play('gameOverMusic', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
+        music = createjs.Sound.play('winMusic', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
 
         // Instantiate Game Objects
-        
+
         //Background Image
-        this.image = new createjs.Bitmap(managers.Assets.loader.getResult("background"));
+        this.image = new createjs.Bitmap(managers.Assets.loader.getResult("level3"));
         game.addChild(this.image);
+
+        sub = new objects.Sub(stage, game);
+        sub.image.y = stage.canvas.height / 2;
+        sub.image.x = 150;
+
+        this.boss = new createjs.Sprite(managers.Assets.atlas, "bossDead");
+        this.boss.width = this.image.getBounds().width;
+        this.boss.height = this.image.getBounds().height;
+        this.boss.regX = this.width / 2;
+        this.boss.regY = this.height / 2;
+        this.boss.y = stage.canvas.height / 2;
+        this.boss.x = stage.canvas.width - (this.width / 4);
+        game.addChild(this.boss);
 
         // Show Cursor
         stage.cursor = "default";
 
         // Display Game Over
-        gameOverLabel = new objects.Label(stage.canvas.width / 2, 40, "GAME OVER");
+        gameOverLabel = new objects.Label(stage.canvas.width / 2, 40, "You Win!");
         game.addChild(gameOverLabel);
 
         // Display Final Score Label
-        finalScoreLabel = new objects.Label(stage.canvas.width / 2, 120, "FINAL SCORE");
+        finalScoreLabel = new objects.Label(stage.canvas.width / 2, 100, "FINAL SCORE");
         game.addChild(finalScoreLabel);
 
         // Display Final Score
-        finalScore = new objects.Label(stage.canvas.width / 2, 160, scoreboard.finalScore.toString());
+        finalScore = new objects.Label(stage.canvas.width / 2, 140, FinalScore.toString());
         game.addChild(finalScore);
 
-        // Display Try Again Button
-        tryAgain = new objects.Button(200, 400, "tryAgainButton");
-        game.addChild(tryAgain);
-        tryAgain.addEventListener("click", tryAgainClicked);
-
+        
         // Display back Button
-        backButton = new objects.Button(stage.canvas.width - 200, 400, "backButton");
+        backButton = new objects.Button(stage.canvas.width /2, 400, "backButton");
         game.addChild(backButton);
-        backButton.addEventListener("click", gameOverBackButtonClicked);
+        backButton.addEventListener("click", winScreenBackButtonClicked);
 
         stage.addChild(game);
 
     }
-}
+} 

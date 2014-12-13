@@ -1,4 +1,12 @@
-﻿/// <reference path="../constants.ts" />
+﻿/*
+    File name: sub.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Dec. 12, 2014 
+    File decsription: create the sub object and adds the logic to it
+ */
+
+/// <reference path="../constants.ts" />
 /// <reference path="../managers/asset.ts" />
 module objects {
     // Sub Class
@@ -48,7 +56,7 @@ module objects {
             } else if (this.image.y > (this.stage.mouseY + constants.SUB_MOVE_SPEED)) {
                 this.image.y -= constants.SUB_MOVE_SPEED;
             }
-            if (this.image.x < (this.stage.mouseX - constants.SUB_MOVE_SPEED)) {
+            if (this.image.x < (this.stage.mouseX - constants.SUB_MOVE_SPEED) && this.image.x <= (this.stage.canvas.width - 225)) {
                 this.image.x += constants.SUB_MOVE_SPEED;
             } else if (this.image.x > (this.stage.mouseX + constants.SUB_MOVE_SPEED)) {
                 this.image.x -= constants.SUB_MOVE_SPEED;
@@ -80,6 +88,7 @@ module objects {
         destroy() {
             //remove sub from the screen
             game.removeChild(this.image);
+            
         }
     }
 } 

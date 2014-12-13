@@ -1,9 +1,17 @@
-﻿/// <reference path="../managers/asset.ts" />
+﻿/*
+    File name: boss.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Dec. 12, 2014 
+    File decsription: create the boss object and adds the logic to it
+ */
+
+/// <reference path="../managers/asset.ts" />
 /// <reference path="../constants.ts" />
 
 module objects {
     // boss class
-    export class boss {
+    export class Boss {
         image: createjs.Sprite;
         stage: createjs.Stage;
         game: createjs.Container;

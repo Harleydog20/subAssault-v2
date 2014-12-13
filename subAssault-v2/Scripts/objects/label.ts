@@ -1,4 +1,12 @@
-﻿/// <reference path="../constants.ts" />
+﻿/*
+    File name: label.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Nov. 13, 2014 
+    File decsription: create the label object and adds the logic to it
+ */
+
+/// <reference path="../constants.ts" />
 module objects {
     export class Label extends createjs.Text {
         constructor(x:number,y:number,labelText:string) {

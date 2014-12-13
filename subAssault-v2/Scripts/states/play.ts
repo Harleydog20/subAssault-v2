@@ -1,5 +1,14 @@
-﻿/// <reference path="../objects/button.ts" />
+﻿/*
+    File name: play.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Dec. 12, 2014 
+    File decsription: creates the play state (Level 1)
+ */
+
+/// <reference path="../objects/button.ts" />
 /// <reference path="../objects/whale.ts" />
+/// <reference path="../game.ts" />
 /// <reference path="../objects/objective.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/ocean.ts" />
@@ -22,8 +31,8 @@ module states {
 
         if (scoreboard.lives <= 0) {
             music.stop();
-            finalScore = 0;
-            lives = constants.SUB_LIVES;
+            FinalScore = 0;
+            Lives = constants.SUB_LIVES;
             stage.removeChild(game);
             sub.destroy();
             game.removeAllChildren();
@@ -34,8 +43,8 @@ module states {
 
         if (scoreboard.objective >= constants.LEVEL_PASSED) {
             music.stop();
-            finalScore = scoreboard.score;
-            lives = scoreboard.lives;
+            FinalScore = scoreboard.score;
+            Lives = scoreboard.lives;
             stage.removeChild(game);
             sub.destroy();
             game.removeAllChildren();
@@ -47,6 +56,7 @@ module states {
 
     // play state Function
     export function play(): void {
+        FinalScore = 0;
         // Declare new Game Container
         game = new createjs.Container();
 
@@ -70,7 +80,7 @@ module states {
         scoreboard = new objects.Scoreboard(stage, game);
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(sub, objective, whales, null, scoreboard);
+        collision = new managers.Collision(sub, objective, whales, null, scoreboard, null, null, null);
 
         stage.addChild(game);
     }

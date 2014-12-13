@@ -1,4 +1,12 @@
-﻿module objects {
+﻿/*
+    File name: ocean.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Nov. 27, 2014 
+    File decsription: create the ocean object and adds the logic to it
+ */
+
+module objects {
     // Ocean Class
     export class Ocean {
         image: createjs.Bitmap;

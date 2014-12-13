@@ -1,4 +1,11 @@
-﻿module managers {
+﻿/*
+    File name: asset.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Dec. 12, 2014 
+    File decsription: Picks out the images from the sprite sheet and create the sprite animations
+ */
+module managers {
     // Image and Sound Manifest;
     var assetManifest = [
         { id: "ocean", src: "assets/images/ocean.png" },//Level 1 Background
@@ -11,72 +18,71 @@
         { id: "bossMusic", src: "assets/sounds/bossScreen.wav" },//Not used in this version
         { id: "coinSound", src: "assets/sounds/coin.wav" },//coin pickup sound
         { id: "explosionSound", src: "assets/sounds/Explosion.wav" },//enemy hit sound
-        //Temp
-        { id: "title", src: "assets/images/Title.png" },//Title
-        { id: "fuel", src: "assets/images/fuel.png" },//fuel
-        { id: "ammo", src: "assets/images/torpedo3.png" },//ammo
-        { id: "torpedo", src: "assets/images/torpedo1.png" },//torpedo
-        { id: "torpedo_boss", src: "assets/images/torpedo2.png" }//boss torpedo
+        { id: "winMusic", src: "assets/sounds/winScreen.mp3" },//Win screen music
     ];
 
     // SpriteSheet Data Object
     var spriteSheetData = {
         "images": ["assets/images/atlas.png"],
         "frames": [           
-            [2, 2, 29, 14],
-            [33, 2, 29, 14],
-            [64, 2, 29, 14],
-            [95, 2, 12, 24],
-            [109, 2, 35, 40],
-            [146, 2, 93, 41],
-            [241, 2, 93, 41],
-            [336, 2, 93, 41],
-            [431, 2, 109, 48],
-            [542, 2, 109, 48],
-            [653, 2, 109, 48],
-            [764, 2, 109, 48],
-            [875, 2, 200, 60],
-            [1077, 2, 200, 60],
+            [2, 2, 80, 23],
+            [84, 2, 80, 24],
+            [166, 2, 35, 40],
+            [203, 2, 93, 41],
+            [298, 2, 93, 41],
+            [393, 2, 93, 41],
+            [488, 2, 109, 48],
+            [599, 2, 109, 48],
+            [710, 2, 109, 48],
+            [821, 2, 109, 48],
+            [932, 2, 14, 50],
+            [948, 2, 200, 60],
+            [1150, 2, 200, 60],
             [2, 64, 200, 60],
             [204, 64, 200, 60],
-            [406, 64, 141, 75],
-            [549, 64, 141, 75],
-            [692, 64, 141, 75],
-            [835, 64, 141, 75],
-            [978, 64, 141, 75],
-            [1121, 64, 141, 75],
+            [406, 64, 200, 73],
+            [608, 64, 141, 75],
+            [751, 64, 141, 75],
+            [894, 64, 141, 75],
+            [1037, 64, 141, 75],
+            [1180, 64, 141, 75],
             [2, 141, 141, 75],
             [145, 141, 141, 75],
             [288, 141, 141, 75],
-            [431, 141, 216, 90],
-            [649, 141, 218, 90],
-            [869, 141, 216, 90],
-            [1087, 141, 214, 90]
+            [431, 141, 141, 75],
+            [574, 141, 216, 90],
+            [792, 141, 218, 90],
+            [1012, 141, 216, 90],
+            [1230, 141, 214, 90]
         ],
         "animations": {
             "Submarine": {//user's avatar
-                frames: [8,11,10,9],
+                frames: [6,7,8,9],
                 speed: 0.4
             },
             //Button images
-            "instructionButton": [14],
+            "instructionButton": [11],
             "playButton": [13],
-            "tryAgainButton": [15],
+            "tryAgainButton": [14],
             "backButton": [12],
             "whale": {//enemy to avoid
-                frames: [6, 7, 6, 5],
+                frames: [4, 5, 4, 3],
                 speed: 0.2
             },
             "mrFish": {//enemy to avoid
-                frames: [18,19,17,20,21,16,22,24,23],
+                frames: [18,21,19,20,23,24,22,17,16],
                 speed: 0.2
             },
             "boss": {//Boss
-                frames: [28,25,26, 25],
+                frames: [28,25,26,25],
                 speed: 0.05
             },
             "bossDead": [27],
-            "fuel22": [4]
+            "title": [15],
+            "fuel": [2],
+            "ammo": [10],
+            "torpedo": [0],
+            "torpedo_boss": [1]
         }
        
     }

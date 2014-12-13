@@ -1,4 +1,12 @@
-﻿/// <reference path="../managers/asset.ts" />
+﻿/*
+    File name: whale.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Nov. 20, 2014 
+    File decsription: creates the whale object and adds the logic
+ */
+
+/// <reference path="../managers/asset.ts" />
 /// <reference path="../constants.ts" />
 
 module objects {

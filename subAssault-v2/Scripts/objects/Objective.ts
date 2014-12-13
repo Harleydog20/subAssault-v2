@@ -1,12 +1,19 @@
-﻿/// <reference path="../managers/asset.ts" />
+﻿/*
+    File name: objective.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Dec. 11, 2014 
+    File decsription: create the objective object and adds the logic to it
+ */
+
+/// <reference path="../managers/asset.ts" />
 /// <reference path="../constants.ts" />
 
 
 module objects {
     // objective Class
     export class Objective {
-        //image: createjs.Sprite;
-        image: createjs.Bitmap;
+        image: createjs.Sprite;
         stage: createjs.Stage;
         game: createjs.Container;
         height: number;
@@ -16,11 +23,9 @@ module objects {
             this.stage = stage;
             this.game = game;
             if (level == constants.PLAY_STATE) {
-                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("fuel"));
-                //this.image = new createjs.Sprite(managers.Assets.atlas, "fuel");
+                this.image = new createjs.Sprite(managers.Assets.atlas, "fuel");
             } else if (level == constants.LEVEL2_STATE) {
-                this.image = new createjs.Bitmap(managers.Assets.loader.getResult("ammo"));
-                //this.image = new createjs.Sprite(managers.Assets.atlas, "ammo");
+                this.image = new createjs.Sprite(managers.Assets.atlas, "ammo");
             }            
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;

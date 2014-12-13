@@ -1,4 +1,12 @@
-﻿/// <reference path="../constants.ts" />
+﻿/*
+    File name: instructions.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Dec. 12, 2014 
+    File decsription: creates the instructions state
+ */
+
+/// <reference path="../constants.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../objects/sub.ts" />
 /// <reference path="../objects/ocean.ts" />
@@ -47,13 +55,15 @@ module states {
         // Display Instructions
         instructionLabel = new objects.text(stage.canvas.width / 2, 100, "Use the mouse to move the submarine and collect");
         game.addChild(instructionLabel);
-        instructionLabel = new objects.text(stage.canvas.width / 2, 150, "as many coins as you can, but be careful of the");
+        instructionLabel = new objects.text(stage.canvas.width / 2, 150, "the different level objectives to move on. ");
         game.addChild(instructionLabel);
-        instructionLabel = new objects.text(stage.canvas.width / 2, 200, "killer whales that guard the coins. If you hit a");
+        instructionLabel = new objects.text(stage.canvas.width / 2, 200, "Once you reach the final boss, left click to");
         game.addChild(instructionLabel);
-        instructionLabel = new objects.text(stage.canvas.width / 2, 250, "killer whale you will lose a life, lose all three");
+        instructionLabel = new objects.text(stage.canvas.width / 2, 250, "fire you’re torpedo and take him out. Be sure to be ");
         game.addChild(instructionLabel);
-        instructionLabel = new objects.text(stage.canvas.width / 2, 300, "lives and the game is over.");
+        instructionLabel = new objects.text(stage.canvas.width / 2, 300, "as fast as you can, the faster you beat a level,");
+        game.addChild(instructionLabel);
+        instructionLabel = new objects.text(stage.canvas.width / 2, 350, "the better your score will be.");
         game.addChild(instructionLabel);
 
         // Display back Button

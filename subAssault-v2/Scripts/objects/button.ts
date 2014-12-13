@@ -1,4 +1,12 @@
-﻿/// <reference path="../constants.ts" />
+﻿/*
+    File name: button.ts
+    Author: Robert Thomas
+    Last Modified by: Robert Thomas
+    Date last Modified: Nov. 24, 2014 
+    File decsription: create the button object and adds the logic to it
+ */
+
+/// <reference path="../constants.ts" />
 /// <reference path="../managers/asset.ts" />
 module objects {
     export class Button extends createjs.Sprite {
